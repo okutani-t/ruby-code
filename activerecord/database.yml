@@ -1,0 +1,7 @@
+pg:
+  adapter: postgresql
+  database:
+  host: localhost
+  username: postgres
+  password: postgres
+  encoding: utf8
