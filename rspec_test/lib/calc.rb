@@ -1,5 +1,5 @@
 class Calc
   def add(a, b)
-    5
+    a + b
   end
 end
