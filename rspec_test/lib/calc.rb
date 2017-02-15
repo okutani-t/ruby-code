@@ -2,6 +2,11 @@ class Calc
   def add(a, b)
     a + b
   end
+
+  def add_by_user(a, b, name)
+    (a + b).to_s + " by #{name}"
+  end
+
   def price(x, tax)
     x * (1 + tax)
   end

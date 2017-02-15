@@ -22,4 +22,13 @@ RSpec.describe Calc do
     expect(calc.add(2, 3).integer?).to be true
     expect(calc.add(2, 3)).to be_integer
   end
+
+  # test double
+  it "given 5 and 2 and okutani, returns 7 by okutani" do
+    user = double('user')
+    allow(user).to receive(:name).and_return('okutani')
+    # user.name -> okutani
+    calc = Calc.new
+    expect(calc.add_by_user(5, 2, user.name)).to eq('7 by okutani')
+  end
 end
