@@ -1,7 +1,7 @@
 require 'calc'
 
 RSpec.describe Calc do
-  subject(:calc) { Calc.new }
+  subject(:calc) { Calc.new(double('logger')) }
 
   context "tax 5%" do
     let(:tax) { 0.05 }
@@ -28,7 +28,14 @@ RSpec.describe Calc do
     user = double('user')
     allow(user).to receive(:name).and_return('okutani')
     # user.name -> okutani
-    calc = Calc.new
     expect(calc.add_by_user(5, 2, user.name)).to eq('7 by okutani')
   end
+
+  # message expectation
+  it {
+    logger = double('logger')
+    expect(logger).to receive(:log)
+    calc = Calc.new(logger)
+    expect(calc.add_log(5, 2)).to eq(7)
+  }
 end
